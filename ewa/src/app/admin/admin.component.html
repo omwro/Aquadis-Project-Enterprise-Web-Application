@@ -1,0 +1,94 @@
+<app-navbar></app-navbar>
+<body>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-12">
+      <h4>{{this.adminTitle}}</h4>
+      <div class="togglebar">
+        <button [ngClass]="this.state == 1? 'active':''" (click)="toggleState(1)">Users</button>
+        <button [ngClass]="this.state == 2? 'active':''" (click)="toggleState(2)">Messages</button>
+        <button [ngClass]="this.state == 3? 'active':''" (click)="toggleState(3)">Map</button>
+      </div>
+      <div *ngIf="state == 1">
+        <div class="row">
+          <div class="well users">
+            <h4>Users</h4>
+            <p>{{this.accounts}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <table id="dataForUser">
+            <tr>
+              <th>Email</th>
+              <th>Username</th>
+              <th>Nickname</th>
+              <th>Disable user</th>
+              <th>Enable user</th>
+              <th>Status account</th>
+            </tr>
+            <tr class="userData"
+                *ngFor="let user of users | paginate:{id: 'pagination1', itemsPerPage: 5, currentPage:p}">
+              <td>{{user[1]}}</td>
+              <td>{{user[2]}}</td>
+              <td>{{user[3]}}</td>
+              <td><i class="fa fa-times" id="disableBtn" (click)="disableUser(user[0])"></i></td>
+              <td><i class="fa fa-check" (click)="enableUser(user[0])"></i></td>
+              <td>{{getStatusText(user[4])}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="row">
+          <pagination-controls id="pagination1" class="page" (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+      <div *ngIf="state == 2">
+        <div class="row">
+          <div class="well messages">
+            <h4>Messages</h4>
+            <p>{{this.messages}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <table>
+            <tr>
+              <th>Title</th>
+              <th>Message</th>
+              <th>Disable message</th>
+              <th>Enable message</th>
+              <th>Status message</th>
+            </tr>
+            <tr *ngFor="let message of messagesData | paginate:{id: 'pagination2', itemsPerPage: 5, currentPage:m}">
+              <td>{{message[2]}}</td>
+              <td>{{message[3]}}</td>
+              <td><i class="fa fa-times" (click)="disableMessage(message[0])"></i></td>
+              <td><i class="fa fa-check" (click)="enableMessage(message[0])"></i></td>
+              <td>{{getStatusText(message[1])}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="row">
+          <pagination-controls id="pagination2" class="page" (pageChange)="m = $event"></pagination-controls>
+        </div>
+      </div>
+      <div *ngIf="state == 3">
+        <div class="row mt-3">
+          <table>
+            <tr>
+              <th>Key</th>
+              <th>Value</th>
+              <th>New Value</th>
+              <th>Save</th>
+            </tr>
+            <tr *ngFor="let map of mapData">
+              <td>{{map.keyname}}</td>
+              <td>{{map.value}}</td>
+              <td><input type="number" min="0" max="1000000" (change)="changeNewValue(map.keyname, $event)"></td>
+              <td><i class="fa fa-check" (click)="updateMap(map.keyname)"></i></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

@@ -1,0 +1,10 @@
+.btn {
+  float: left;
+  padding: 10px;
+  margin: 5px;
+}
+
+.btn-logout{
+  float: right;
+}
+

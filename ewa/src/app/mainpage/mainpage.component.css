@@ -1,0 +1,86 @@
+html,body{
+  overflow-y:hidden;
+}
+
+.newMessage{
+  float:right;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-image: url("https://image.flaticon.com/icons/svg/813/813419.svg");
+  background-size: 38px 38px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.circleButton{
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+}
+
+.popup{
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom:0;
+  margin:auto;
+}
+
+.popup input[type="text"], .popup textarea{
+  border: 0;
+  border-bottom: 1px solid lightslategray;
+  margin: 8px;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+
+.popup input[type="text"]:focus, .popup input[type="text"]:hover,
+.popup textarea[type="text"]:focus, .popup textarea[type="text"]:hover{
+  border-bottom: 2px solid cornflowerblue;
+}
+
+.popup textarea{
+  margin-top: 16px;
+  height: 128px;
+  min-height: 128px;
+  resize:none;
+}
+
+.transparent{
+  float:left;
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  opacity: 0.5;
+}
+
+.exit{
+  float:right;
+  margin-left: calc(400px - 1em);
+  margin-bottom: -1em;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.ok{
+  position: relative;
+  left: 328px;
+  top: -32px;
+  min-height:64px;
+  background-image: url("https://image.flaticon.com/icons/svg/1/1687.svg");
+  background-size: 38px 38px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+

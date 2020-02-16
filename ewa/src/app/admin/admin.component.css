@@ -1,0 +1,115 @@
+body {
+  height: 100%;
+  background-color: #121212;
+}
+
+.container {
+  height: 100%;
+}
+
+.row {
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.well {
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #212121;
+}
+
+.well.users {
+  width: 100px;
+}
+
+.well.messages {
+  width: 150px;
+}
+
+
+h4 {
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+table {
+}
+
+tr {
+  background-color: #212121;
+}
+
+td, th {
+  border: 2px solid white;
+  padding: 8px;
+  color: white;
+  min-width: 120px;
+}
+
+td:nth-child(1){
+  width: 300px;
+}
+
+.page {
+  display: inline-block;
+}
+pagination-controls /deep/ a {
+  color: white !important;
+}
+pagination-controls /deep/ .disabled {
+  color: #404040 !important;
+}
+pagination-controls /deep/ a:hover {
+  background-color: transparent !important;
+}
+pagination-controls /deep/ a:focus {
+  outline: 0;
+  text-decoration: none;
+}
+pagination-controls /deep/ ul {
+  padding-left: 0;
+}
+
+i {
+  font-size: 49px;
+  cursor: pointer;
+}
+
+.togglebar {
+  border: white solid 2px;
+  border-radius: 10px;
+  width: 266px;
+  margin-top: 20px;
+}
+
+.togglebar button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.togglebar button:focus {
+  outline: 0;
+}
+
+.togglebar button:first-child {
+  border-right: white solid 1px;
+}
+
+.togglebar button:last-child {
+  border-left: white solid 1px;
+}
+
+.active {
+  color: #23a8ff !important;
+}

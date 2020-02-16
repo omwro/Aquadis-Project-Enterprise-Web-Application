@@ -1,0 +1,28 @@
+body {
+  /*background-image: url(https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg);*/
+  height: calc(100% - 56px);
+  background-image: url("/assets/login_background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.card-header{
+  color: white
+}
+
+.container{
+  height: 100%;
+  align-content: center;
+}
+
+.card{
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+

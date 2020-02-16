@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+<div id="body">
+  <div class="container-fluid">
+    <div class="row title">
+      My Profile
+    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="save()">
+      <div class="row image">
+        <img id="foto" [src]="controller.getAvatar() != '' && controller.getAvatar() != 'undefined'? 'assets/stockAvatars/'+controller.getAvatar()+'.png' : 'assets/stockAvatars/default.png'" alt="profile icon">
+      </div>
+      <div *ngIf="editState == 1" class="row justify-content-center margintop25">
+        <div class="col left">
+          Avatar:
+        </div>
+        <div class="col right">
+          <select id="avatarddl" (change)="changeImage($event)" formControlName="avatar">
+            <option value="default">default</option>
+            <option value="boy-1">boy 1</option>
+            <option value="boy-2">boy 2</option>
+            <option value="boy-3">boy 3</option>
+            <option value="boy-4">boy 4</option>
+            <option value="girl-1">girl 1</option>
+            <option value="girl-2">girl 2</option>
+            <option value="girl-3">girl 3</option>
+            <option value="girl-4">girl 4</option>
+            <option value="man-1">man 1</option>
+            <option value="man-2">man 2</option>
+            <option value="man-3">man 3</option>
+            <option value="man-4">man 4</option>
+            <option value="woman-1">woman 1</option>
+            <option value="woman-2">woman 2</option>
+            <option value="woman-3">woman 3</option>
+            <option value="woman-4">woman 4</option>
+          </select>
+        </div>
+      </div>
+      <div class="row margintop25">
+        <div class="col left">
+          Nickname:
+        </div>
+        <div *ngIf="editState == 0" class="col right">
+          {{controller.getNickname()}}
+        </div>
+        <div *ngIf="editState == 1" class="col right">
+          <input type="text" id="newName" placeholder="Your new name" formControlName="nickname" value="{{controller.getNickname()}}">
+          <div *ngIf="newNameError == 1">
+            Name must be at least 4 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="row margintop25">
+        <div class="col left">
+          Status:
+        </div>
+        <div *ngIf="editState == 0" class="col right">
+          {{controller.getProfileStatus()}}
+        </div>
+        <div *ngIf="editState == 1" class="col right">
+          Hide profile?
+          <input id="statuscheckbox" type="checkbox" formControlName="status" [checked]="controller.getProfileStatusBoolean() == true">
+        </div>
+      </div>
+      <div *ngIf="editState == 0" class="row margintop25">
+        <div class="col left">
+          Score:
+        </div>
+        <div class="col right">
+          {{controller.getScore()}}
+        </div>
+      </div>
+      <div *ngIf="editState == 0" class="row margintop25 button">
+        <input id="editbtn" type="button" class=" btn btn-primary" value="Edit Profile" (click)="edit()">
+      </div>
+      <div *ngIf="editState == 1" class="row margintop25 button">
+        <input id="savebtn" type="submit" class=" btn btn-success" value="Save">
+        <div class="tab"></div>
+        <input id="discardbtn" type="button" class=" btn btn-danger" value="Discard" (click)="discard()">
+      </div>
+      <div *ngIf="editState == 0" class="row d-flex justify-content-center">
+        <label id="advancedbtn" class="textbtn" (click)="gotoAdvanced()">Advanced</label>
+      </div>
+    </form>
+  </div>
+</div>
+

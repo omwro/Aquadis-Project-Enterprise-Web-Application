@@ -1,0 +1,93 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+</head>
+<body>
+<app-navbar></app-navbar>
+<!--<div class="working-area">
+  <div flex-gt-sm="100" flex="">
+    <div class="card-header headerbackground" layout="row" >
+      <div><b><h3 class="text-center">Leaderboard</h3></b></div>
+    </div>
+
+    <div>
+      <div class="list-group" flex="">
+        <ol  class="list-group-item"  >
+          &lt;!&ndash;<div class="list-group-item"  *ngFor="let user of users">&ndash;&gt;
+          <table *ngFor="let user of users; let i = index">
+            <tr>
+              <td class="td1" *ngIf="i == 0"><img src="assets/awards/first.png" class="Award"></td>
+              <td class="td1" *ngIf="i == 1"><img src="assets/awards/second.png" class="Award"></td>
+              <td class="td2"><img src="assets/stockAvatars/{{user.avatar}}.png"></td>
+              <td class="td3">{{user.nickname}}</td>
+              <td class="td4">{{user.score}}</td>
+            </tr>
+
+          </table>
+           &lt;!&ndash;<li *ngFor="let user of users">&ndash;&gt;
+            &lt;!&ndash;<div class="md-list-item-text" layout="column">&ndash;&gt;
+              &lt;!&ndash;<h3><b>{{ user.username }}</b></h3>&ndash;&gt;
+              &lt;!&ndash;<p>{{ user.score }}</p>&ndash;&gt;
+            &lt;!&ndash;</div>&ndash;&gt;
+            &lt;!&ndash;</li>&ndash;&gt;
+        </ol>
+        </div>
+      </div>
+    </div>
+</div>-->
+<!--<div class="working-area">
+  <div>
+    <div class="card-header headerbackground">
+      <div><b><h3 class="title">Leaderboard</h3></b></div>
+    </div>
+    <div>
+      <div class="list-group">
+        <ol  class="list-group-item"  >
+          <table *ngFor="let user of users; let i = index">
+            <tr>
+              <td class="td1" *ngIf="i == 0"><img src="assets/awards/first.png" class="award"></td>
+              <td class="td1" *ngIf="i == 1"><img src="assets/awards/second.png" class="award"></td>
+              <td class="td1" *ngIf="i == 2"><img src="assets/awards/third.png" class="award"></td>
+              <td class="td1" *ngIf="i > 2"><img src="assets/awards/star.png" class="award"></td>
+              <td class="td2"><img class="avatar" src="assets/stockAvatars/{{user.avatar}}.png"></td>
+              <td class="td3">{{user.nickname}}</td>
+              <td class="td4">{{user.score}}</td>
+            </tr>
+          </table>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<div id="body">
+  <div class="container-fluid">
+    <div class="row title">
+      <h4>Leaderboard</h4>
+    </div>
+    <table>
+      <tr>
+        <th>Rank</th>
+        <th>Avatar</th>
+        <th>Nickname</th>
+        <th>Score</th>
+      </tr>
+      <ng-container *ngFor="let user of users; let i = index">
+        <tr>
+          <td class="td1" *ngIf="i == 0"><img src="assets/awards/first.png" class="award"></td>
+          <td class="td1" *ngIf="i == 1"><img src="assets/awards/second.png" class="award"></td>
+          <td class="td1" *ngIf="i == 2"><img src="assets/awards/third.png" class="award"></td>
+          <td class="td1" *ngIf="i > 2"><img src="assets/awards/star.png" class="award"></td>
+          <td class="td2"><img class="avatar" src="assets/stockAvatars/{{user.avatar}}.png"></td>
+          <td class="td3">{{user.nickname}}</td>
+          <td class="td4">{{user.score}}</td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<div id="body">
+  <div class="container-fluid">
+    <div class="row title">
+      My Profile (Advanced)
+    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="save()">
+      <div class="row margintop25">
+        <div class="col left">
+          Email:
+        </div>
+        <div *ngIf="editState == 0" class="col right">
+          {{controller.email}}
+        </div>
+        <div *ngIf="editState == 1" class="col right">
+          <input id="emailinput" type="text" placeholder="Your new email" formControlName="email" value="{{controller.email}}">
+          <div *ngIf="emailError" class="mat-error">Email already exist.</div>
+        </div>
+      </div>
+      <div class="row margintop25">
+        <div class="col left">
+          Username:
+        </div>
+        <div *ngIf="editState == 0" class="col right">
+          {{controller.username}}
+        </div>
+        <div *ngIf="editState == 1" class="col right">
+          <input id="usernameinput" type="text" placeholder="Your new username" formControlName="username" value="{{controller.username}}">
+          <div *ngIf="usernameError" class="mat-error">Username already exist.</div>
+        </div>
+      </div>
+      <div class="row margintop25">
+        <div class="col left">
+          Password:
+        </div>
+        <div *ngIf="editState == 0" class="col right">
+          {{controller.passwordEnc}}
+        </div>
+        <div *ngIf="editState == 1" class="col right">
+          <input id="passwordinput" type="password" placeholder="Your new password" formControlName="password" value="{{controller.password}}">
+        </div>
+      </div>
+      <div class="row margintop25" *ngIf="editState == 1">
+        <div class="col left">
+          Confirm Password:
+        </div>
+        <div class="col right">
+          <input id="passwordconfirminput" type="password" placeholder="Confirm your password" formControlName="password2" value="">
+          <div *ngIf="passwordError" class="mat-error">Password not the same.</div>
+        </div>
+      </div>
+      <div *ngIf="editState == 0" class="row margintop25 button">
+        <input id="editbtn" type="button" class=" btn btn-primary" value="Edit Profile" (click)="edit()">
+      </div>
+      <div *ngIf="editState == 1" class="row margintop25 button">
+        <input type="submit" class=" btn btn-success" value="Save">
+        <div class="tab"></div>
+        <input id="discardbtn" type="button" class=" btn btn-danger" value="Discard" (click)="discard()">
+      </div>
+      <div *ngIf="editState == 0" class="row d-flex justify-content-center">
+        <label id="simplebtn" class="textbtn" (click)="gotoSimple()">Simple</label>
+      </div>
+    </form>
+  </div>
+</div>
+
